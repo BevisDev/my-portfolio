@@ -10,7 +10,7 @@ import Blog from "./components/homepage/blog";
 
 async function getData() {
   const res = await fetch(
-    `https://dev.to/api/articles?username=${personalData.devUsername}`
+    `https://dev.to/api/articles?username=${personalData.username}`
   );
 
   if (!res.ok) {

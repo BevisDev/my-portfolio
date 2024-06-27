@@ -3,7 +3,7 @@ import { personalData } from "@/utils/data/personal-data";
 // Fetch blog data by slug
 async function getBlog(slug) {
   const res = await fetch(
-    `https://dev.to/api/articles/${personalData.devUsername}/${slug}`
+    `https://dev.to/api/articles/${personalData.username}/${slug}`
   );
 
   if (!res.ok) {
@@ -17,7 +17,7 @@ async function getBlog(slug) {
 // Fetch all slugs to generate static paths
 async function fetchAllSlugs() {
   const res = await fetch(
-    `https://dev.to/api/articles?username=${personalData.devUsername}`
+    `https://dev.to/api/articles?username=${personalData.username}`
   );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
