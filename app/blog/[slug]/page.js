@@ -1,7 +1,7 @@
 import { personalData } from "@/utils/data/personal-data";
 
 // Fetch blog data by slug
-export async function getBlog(slug) {
+async function getBlog(slug) {
   const res = await fetch(
     `https://dev.to/api/articles/${personalData.username}/${slug}`
   );
@@ -14,11 +14,20 @@ export async function getBlog(slug) {
   return data;
 }
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const slugs = await getBlog();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
+
 // Blog details component
 // Multiple versions of this page will be statically generated
 // using the `params` returned by `generateStaticParams`
 export default async function BlogDetails({ params }) {
-  const blog = await getBlog(params.slug);
+  // const blog = await getBlog(params.slug);
 
   return (
     <div>
