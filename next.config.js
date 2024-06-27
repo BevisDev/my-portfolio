@@ -8,5 +8,4 @@ module.exports = {
     domains: ["res.cloudinary.com", "media.dev.to"],
     unoptimized: true,
   },
-  output: "export",
 };
